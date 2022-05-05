@@ -1,12 +1,9 @@
-/*var title= $("condensedimage:hover").attr("title");
+let images = document.querySelectorAll("img")
+console.log(images.length)
 
-$("condensedimage:hover").on("hover",function(){
-    alert(title);
-});*/
+for (let i = 0; i < images.length; i++ ){
+    images[i].addEventlistener('mouseover', resize)
+}
 
-const scrollContainer = document.querySelector("main");
-
-scrollContainer.addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    scrollContainer.scrollLeft += evt.deltaY;
-});
+function resize(event) {
+}
