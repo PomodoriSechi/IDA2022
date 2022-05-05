@@ -1,0 +1,20 @@
+.specialbutton {
+    background-color: orange;
+	border-radius: 4px;
+	border: none;
+	color:black;
+	font-family: Helvetica, Arial, sans-serif;
+	padding: 5px 10px 5px 10px;
+}
+.specialbutton:hover {
+ background-color: rgb(249, 188, 76);
+    
+}
+#element {
+    top: 200px;
+    left: 0px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: red;
+}
