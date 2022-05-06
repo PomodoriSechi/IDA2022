@@ -1,0 +1,16 @@
+.button {
+    cursor: pointer;
+    background-color: red;
+    border-radius: px;
+    border: 0px;
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: rgb(1, 164, 213);
+    color: white;
+}
+html {
+    background-image: url('img/Xz1Q.gif')
+}
