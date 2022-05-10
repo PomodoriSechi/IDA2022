@@ -4,17 +4,16 @@ html {
 }
 * {
     font-family: 'Space Grotesk', sans-serif;
-    background-color: black;
-    color: rgb(255, 213, 0);
+    background-color: rgb(243, 243, 243);
+    color: #000000
 }
 a {
 text-decoration: none;}
 a:hover {
-    color: white;
+    color: rgb(27, 122, 255);
     cursor: pointer;
-
 }
-.flexWrapper {
+/* .flexWrapper {
     display: flex;
     flex-direction: column;
-}
+} */
