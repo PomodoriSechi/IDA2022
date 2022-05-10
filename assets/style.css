@@ -13,6 +13,9 @@ a:hover {
     color: rgb(27, 122, 255);
     cursor: pointer;
 }
+h3 {
+    margin-left: 10px;
+}
 /* .flexWrapper {
     display: flex;
     flex-direction: column;
