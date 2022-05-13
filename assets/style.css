@@ -10,7 +10,7 @@ html {
 a {
 text-decoration: none;}
 a:hover {
-    color: rgb(27, 122, 255);
+    color: rgb(0, 102, 245);
     cursor: pointer;
 }
 h3 {
