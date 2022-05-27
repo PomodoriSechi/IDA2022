@@ -1,0 +1,27 @@
+:root {
+    --primary-color: rgb(119, 255, 217);
+    --secundary-color: rgb(255, 119, 203);
+    --tertiary-color: rgb(92, 235, 140);
+}
+
+html {
+    background-color: black;
+    color: var(--primary-color);
+    font-family: ff-meta-headline-web-pro-con, sans-serif;
+    font-weight: 350;
+    font-style: normal;
+    width: 100%;
+    height: 100%;
+}
+button {
+    border: 1px var(--primary-color) solid;
+	background: none;
+    cursor: pointer;
+    color: var(--secundary-color);
+    height: 80px;
+    width: 80px;
+}
+#editor {
+    width: 100%;
+    height: 100%;
+}
