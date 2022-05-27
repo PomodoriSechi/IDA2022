@@ -4,8 +4,9 @@ html {
 }
 * {
     font-family: 'Space Grotesk', sans-serif;
-    background-color: rgb(243, 243, 243);
-    color: #000000
+    background-color: rgb(179, 213, 29);
+    color: #ffffff;
+    text-align: center;
 }
 a {
 text-decoration: none;}
