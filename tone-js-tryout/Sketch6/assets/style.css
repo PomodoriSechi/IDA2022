@@ -1,11 +1,20 @@
 html {
   background-color: black;
   color: var(--primary-color);
-  font-family: ff-meta-headline-web-pro-con, sans-serif;
-  font-weight: 350;
-  font-style: normal;
+  /* font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace; */
+  font-family: 'Share Tech Mono', monospace;
+  /* font-family: 'Space Grotesk', sans-serif; */
   width: 100%;
   height: 100%;
+  padding-top: 60px;
+}
+
+:root {
+  --primary-color: rgb(255, 255, 255);
+  --primary-color-dark: #959595;
+  --secundary-color: rgb(176, 176, 176);
+  --tertiary-color: rgb(92, 235, 140);
 }
 
 .sequencer {
@@ -16,15 +25,17 @@ html {
   grid-template-columns: fit-content;
   margin: auto;
 }
-.beat-color {
-  --primary-color: rgb(205, 219, 5);
+
+#beat-color {
+  --primary-color: rgb(244, 178, 54);
   --primary-color-dark: rgb(13, 68, 5);
 }
+
 .note {
   height: 4em;
   width: 4em;
   border: 1px var(--primary-color) solid;
-  background-color: #444444;
+  background-color: #0b0b0b;
   cursor: pointer;
   margin: 3px;
 }
@@ -39,13 +50,20 @@ html {
   border: 1px var(--primary-color-dark) solid;
 }
 
+#about-button {
+margin-inline-end: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  color: var(--primary-color-dark);
+}
 /* .note-not-active {
     background-color: yellow;
   } */
 #slider {
-margin-top: 25px;
-display: flex;
-justify-content: center;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 #bpm {
@@ -65,17 +83,14 @@ justify-content: center;
   padding: 5px 30px;
   width: 100px;
   font: inherit;
-  border: solid var(--primary-color);
+  border: solid 2px var(--primary-color);
   cursor: pointer;
 }
 
-:root {
-  --primary-color: rgb(249, 53, 193);
-  --primary-color-dark: #70344d;
-  --secundary-color: rgb(255, 119, 203);
-  --tertiary-color: rgb(92, 235, 140);
+.active-button {
+  background-color: var(--primary-color);
+  color: black;
 }
-
 
 /* button {
     border: 1px var(--primary-color) solid;
@@ -94,40 +109,42 @@ justify-content: center;
 /*Range Reset*/
 input[type="range"] {
   -webkit-appearance: none;
-   appearance: none;
-   background: transparent;
-   cursor: pointer;
-   width: 10rem;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 10rem;
 }
 
 /* Removes default focus */
 input[type="range"]:focus {
- outline: none;
+  outline: none;
 }
 
 /***** Chrome, Safari, Opera and Edge Chromium styles *****/
 /* slider track */
 input[type="range"]::-webkit-slider-runnable-track {
   background-color: var(--primary-color-dark);
-  height: 0.2rem;  
+  height: 0.15rem;
 }
 
 /* slider thumb */
 input[type="range"]::-webkit-slider-thumb {
- -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none;
+  /* Override default look */
   appearance: none;
-  margin-top: -9px; /* Centers thumb on the track */
+  margin-top: -9px;
+  /* Centers thumb on the track */
 
   /*custom styles*/
   background-color: var(--primary-color);
   height: 1.4rem;
-  width: 0.5rem;
+  width: 0.4rem;
 }
 
-input[type="range"]:focus::-webkit-slider-thumb {   
- border: 1px solid var(--primary-color-dark);
- outline: 3px solid var(--primary-color-dark);
- outline-offset: 0.125rem; 
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid var(--primary-color-dark);
+  outline: 3px solid var(--primary-color-dark);
+  outline-offset: 0.125rem;
 }
 
 /******** Firefox styles ********/
@@ -140,8 +157,10 @@ input[type="range"]::-moz-range-track {
 
 /* slider thumb */
 input[type="range"]::-moz-range-thumb {
-  border: none; /*Removes extra border that FF applies*/
-  border-radius: 0; /*Removes default border-radius that FF applies*/
+  border: none;
+  /*Removes extra border that FF applies*/
+  border-radius: 0;
+  /*Removes default border-radius that FF applies*/
 
   /*custom styles*/
   background-color: var(--primary-color);
@@ -150,7 +169,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 input[type="range"]:focus::-moz-range-thumb {
- border: 1px solid var(--primary-color-dark);
- outline: 3px solid var(--primary-color-dark);
- outline-offset: 0.125rem;
+  border: 1px solid var(--primary-color-dark);
+  outline: 3px solid var(--primary-color-dark);
+  outline-offset: 0.125rem;
 }

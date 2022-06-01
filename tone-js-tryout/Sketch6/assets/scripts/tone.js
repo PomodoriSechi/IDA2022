@@ -1,7 +1,7 @@
 import classNames from "https://cdn.skypack.dev/classnames/bind";
 import * as Tone from "https://cdn.skypack.dev/tone";
 
-let sequencerWidth = 10
+let sequencerWidth = 8
 const makeSynths = (count) => {
   // declare array to store synths
   const synths = [];
@@ -117,8 +117,12 @@ const makeSequencer = () => {
     row.forEach((note, noteIndex) => {
       const button = document.createElement("button");
       button.className = "note"
+      if (rowIndex >=6){
+        button.setAttribute("id","beat-color")
+      }
       button.addEventListener("click", function(e) {
         handleNoteClick(rowIndex, noteIndex, e);
+
       });
 
       seqRow.appendChild(button);
@@ -155,10 +159,12 @@ const configPlayButton = () => {
 
     if (playing) {
       e.target.innerText = "Play";
+      e.target.classList.remove("active-button");
       Tone.Transport.stop();
       playing = false;
     } else {
       e.target.innerText = "Stop";
+      e.target.classList.add("active-button");
       Tone.Transport.start();
       playing = true;
     }
