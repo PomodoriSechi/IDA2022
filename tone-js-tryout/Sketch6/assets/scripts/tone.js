@@ -1,6 +1,7 @@
 import classNames from "https://cdn.skypack.dev/classnames/bind";
 import * as Tone from "https://cdn.skypack.dev/tone";
 
+let sequencerWidth = 10
 const makeSynths = (count) => {
   // declare array to store synths
   const synths = [];
@@ -29,7 +30,8 @@ const makeSynths = (count) => {
         "D#4": "Ds4.m4a",
         "F#4": "Fs4.m4a",
         "A4": "A4.m4a",
-				// "C4": "achtel-Bierdose.mp3",
+				"C1": "achtel-Bierdose.mp3",
+				"C2": "Snackruebli-kauen.mp3",
 				// "D4": "Goerps1.mp3",
 				// "A4": "Knack_1.mp4",
 				// "F4": "Snackruebli-kauen.mp3",
@@ -59,7 +61,7 @@ const makeGrid = (notes) => {
     // each subarray contains multiple objects that have an assigned note
     // and a boolean to flag whether they are "activated"
     // each element in the subarray corresponds to one eigth note
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < sequencerWidth; i++) {
       row.push({
         note: note,
         isActive: false
@@ -68,14 +70,14 @@ const makeGrid = (notes) => {
     rows.push(row);
   }
 
-  // we now have 6 rows each containing 16 eighth notes
+  // we now have 6(sequencer) rows each containing 16 eighth notes
   return rows;
 };
 
 const synths = makeSynths(8);
 
 // declaring the notes for each row
-const notes = ["C5", "B4","A5", "G4", "F4", "E4", "D4", "C4"];
+const notes = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3", "C1", "C2"];
 let grid = makeGrid(notes);
 let beat = 0;
 let playing = false;
@@ -98,7 +100,7 @@ const configLoop = () => {
       }
     });
 
-    beat = (beat + 1) % 8;
+    beat = (beat + 1) % sequencerWidth;
   };
 
   Tone.Transport.bpm.value = 120;

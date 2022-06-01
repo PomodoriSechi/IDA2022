@@ -6,9 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>5 Step Sequencer</title>
-  <link rel="icon" type="image/png" sizes="174x174" href="/tone-js-tryout/Sketch5/assets/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="174x174" href="/tone-js-tryout/Sketch7/assets/img/favicon.png">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
+  <link rel="stylesheet" href="https://use.typekit.net/wvz0wti.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.40/Tone.js"
     integrity="sha512-59wz3/QJMP1QgULLB5O08pqS8wIdlvK1iJaRZm6ESyRrUuxjdRrnKepXKbSTbjX3ZZZ19AbiCJZEaZN7Zm8OjQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -16,14 +17,16 @@
 
 <body>
 
-  <div id="sequencer" class="container sequencer"></div>
-  <div id="beatSequencer" class="container sequencer"></div>
+  <div id="sequencer" class="container sequencer">Melodies</div>
+  <div id="drumSequencer" class="container sequencer">Beats</div>
   <div class="toggle-play">
     <button id="play-button" class="play-button">Play</button>
     <div id="output"></div>
   </div>
-  <div id="slider">bpm<input id="bpm" type="range" min="50" max="220" step="1" value="120"></input></div>
-  <script type="module" src="/tone-js-tryout/Sketch5/assets/scripts/tone.js"></script>
+  <div class="slider">bpm<input id="bpm" type="range" min="50" max="220" step="1" value="120"></input></div>
+  <div class="slider">Volume<input id="volume" type="range" min="0" max="100" step="1" value="80"></input></div>
+  <script type="module" src="/tone-js-tryout/Sketch7/assets/scripts/tone.js"></script>
+<a><u>about</u></a>
 </body>
 
 </html>

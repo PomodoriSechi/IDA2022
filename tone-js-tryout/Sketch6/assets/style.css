@@ -16,10 +16,10 @@ html {
   grid-template-columns: fit-content;
   margin: auto;
 }
-#drumSequencer {
-  margin-top: 30px;;
+.beat-color {
+  --primary-color: rgb(205, 219, 5);
+  --primary-color-dark: rgb(13, 68, 5);
 }
-
 .note {
   height: 4em;
   width: 4em;
@@ -70,8 +70,8 @@ justify-content: center;
 }
 
 :root {
-  --primary-color: rgb(249, 157, 53);
-  --primary-color-dark: #704b34;
+  --primary-color: rgb(249, 53, 193);
+  --primary-color-dark: #70344d;
   --secundary-color: rgb(255, 119, 203);
   --tertiary-color: rgb(92, 235, 140);
 }

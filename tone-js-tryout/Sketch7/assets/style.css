@@ -15,18 +15,21 @@ html {
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: fit-content;
   margin: auto;
+  text-align: -webkit-center;
 }
 #drumSequencer {
-  margin-top: 30px;;
+  --primary-color: rgb(205, 219, 5);
+  --primary-color-dark: rgb(13, 68, 5);
+  margin-top: 30px;
+  color: var(--primary-color);
 }
-
 .note {
-  height: 4em;
-  width: 4em;
+  height: 3em;
+  width: 3em;
   border: 1px var(--primary-color) solid;
   background-color: #444444;
   cursor: pointer;
-  margin: 3px;
+  margin: 2px;
 }
 
 .sequencer-row {
@@ -42,14 +45,19 @@ html {
 /* .note-not-active {
     background-color: yellow;
   } */
-#slider {
-margin-top: 25px;
-display: flex;
-justify-content: center;
+.slider {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
 }
-
 #bpm {
-  margin-left: 15px;
+  margin-left: 35px;
+}
+#volume {
+  margin-left: 12px;
 }
 
 .toggle-play {
@@ -70,27 +78,14 @@ justify-content: center;
 }
 
 :root {
-  --primary-color: rgb(249, 157, 53);
-  --primary-color-dark: #704b34;
+  --primary-color: rgb(255, 65, 201);
+  --primary-color-dark: #70344d;
   --secundary-color: rgb(255, 119, 203);
   --tertiary-color: rgb(92, 235, 140);
 }
 
 
-/* button {
-    border: 1px var(--primary-color) solid;
-	background: none;
-    cursor: pointer;
-    color: var(--secundary-color);
-    height: 80px;
-    width: 80px;
-}
-#editor {
-    width: 100%;
-    height: 100%;
-} */
-
-/********** Range Input Styles **********/
+/****************************** Range Input Styles ******************************/
 /*Range Reset*/
 input[type="range"] {
   -webkit-appearance: none;
