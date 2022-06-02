@@ -1,5 +1,5 @@
 html {
-  background-color: black;
+  background-color: rgb(9, 8, 13);
   color: var(--primary-color);
   /* font-family: 'Space Grotesk', sans-serif;
   font-family: 'Space Mono', monospace; */
@@ -15,6 +15,7 @@ html {
   --primary-color-dark: #959595;
   --secundary-color: rgb(176, 176, 176);
   --tertiary-color: rgb(92, 235, 140);
+  --fourth-color: rgb(160, 243, 232);
 }
 
 .sequencer {
@@ -27,7 +28,8 @@ html {
 }
 
 #beat-color {
-  --primary-color: rgb(244, 178, 54);
+  /* --primary-color: rgb(244, 178, 54); */
+  --primary-color: rgb(54, 244, 174);
   --primary-color-dark: rgb(13, 68, 5);
 }
 
@@ -38,6 +40,11 @@ html {
   background-color: #0b0b0b;
   cursor: pointer;
   margin: 3px;
+}
+
+.played-note {
+  background-color: greenyellow;
+  filter: blur(4px);
 }
 
 .sequencer-row {
@@ -81,17 +88,33 @@ margin-inline-end: auto;
   color: inherit;
   border: none;
   padding: 5px 30px;
-  width: 100px;
+  width: 150px;
   font: inherit;
   border: solid 2px var(--primary-color);
   cursor: pointer;
+  text-align: center;
 }
 
 .active-button {
   background-color: var(--primary-color);
-  color: black;
+  color: black;  
 }
 
+
+@keyframes glow {
+  0% {background-color: var(--primary-color)}
+  /* 50% {background-color: var(--tertiary-color)} */
+  /* 50% {background-color: rgb(255, 1, 251)} */
+  /* 50% {background-color: rgb(255, 221, 158); } */
+  50% {background-color: var(--fourth-color); opacity: 60%;}
+  100% {background-color: var(--primary-color)}
+}
+.glow-animation {
+  animation-name: glow;
+  animation-iteration-count: 1;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
 /* button {
     border: 1px var(--primary-color) solid;
 	background: none;

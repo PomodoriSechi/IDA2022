@@ -64,7 +64,8 @@ const makeGrid = (notes) => {
     for (let i = 0; i < sequencerWidth; i++) {
       row.push({
         note: note,
-        isActive: false
+        isActive: false, 
+        HTMLElement: null
       });
     }
     rows.push(row);
@@ -97,6 +98,12 @@ const configLoop = () => {
       let note = row[beat];
       if (note.isActive) {
         synth.triggerAttackRelease(note.note, "8n", time);
+        // console.log(row[beat])
+        let a = row[beat].HTMLElement;
+        // a.style.backgroundColor = "red";
+        // a.style.animationDuration = "8n" doesnt work :(
+        a.classList.add("glow-animation")
+        setTimeout(() => { a.classList.remove("glow-animation")}, 300 );        
       }
     });
 
@@ -106,7 +113,6 @@ const configLoop = () => {
   Tone.Transport.bpm.value = 120;
   Tone.Transport.scheduleRepeat(repeat, "8n");
 };
-
 const makeSequencer = () => {
   const sequencer = document.getElementById("sequencer");
   grid.forEach((row, rowIndex) => {
@@ -124,6 +130,8 @@ const makeSequencer = () => {
         handleNoteClick(rowIndex, noteIndex, e);
 
       });
+      grid[rowIndex][noteIndex].HTMLElement = button
+      // console.log(grid[rowIndex][noteIndex])
 
       seqRow.appendChild(button);
     });
@@ -140,12 +148,24 @@ const handleNoteClick = (clickedRowIndex, clickedNoteIndex, e) => {
         e.target.className = classNames(
           "note", 
           { "note-is-active": !!note.isActive }, 
-          { "note-not-active": !note.isActive }
+          { "note-not-active": !note.isActive },
+
         );
       }
     });
   });
 };
+
+// document.getElementById("randomize-button").onclick = function randomizeGrid() {
+//   console.log(grid)
+//   for(let x = 0; x < grid.length; x++) {
+//     for(let y = 0; y < grid[x].length; y++) {
+//       if(Math.random() > 0.5) {
+//         grid[x][y].isActive = true;
+//       }
+//     }
+//   }
+// }
 
 const configPlayButton = () => {
   const button = document.getElementById("play-button");
