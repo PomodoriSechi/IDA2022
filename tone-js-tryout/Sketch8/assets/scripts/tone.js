@@ -1,6 +1,7 @@
 import classNames from "https://cdn.skypack.dev/classnames/bind";
 import * as Tone from "https://cdn.skypack.dev/tone";
 
+let sequencerWidth = 8
 const makeSynths = (count) => {
   // declare array to store synths
   const synths = [];
@@ -25,12 +26,12 @@ const makeSynths = (count) => {
     // https://tonejs.github.io/examples/oscillator
     let synth = new Tone.Sampler({
 			urls: {
-        
-        // "C4": "C4.m4a",
-        // "D#4": "Ds4.m4a",
-        // "F#4": "Fs4.m4a",
-        // "A4": "A4.m4a",
-				// "C4": "achtel-Bierdose.mp3",
+        "C4": "C4.m4a",
+        "D#4": "Ds4.m4a",
+        "F#4": "Fs4.m4a",
+        "A4": "A4.m4a",
+				"C1": "achtel-Bierdose.mp3",
+				"C2": "Snackruebli-kauen.mp3",
 				// "D4": "Goerps1.mp3",
 				// "A4": "Knack_1.mp4",
 				// "F4": "Snackruebli-kauen.mp3",
@@ -60,23 +61,24 @@ const makeGrid = (notes) => {
     // each subarray contains multiple objects that have an assigned note
     // and a boolean to flag whether they are "activated"
     // each element in the subarray corresponds to one eigth note
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < sequencerWidth; i++) {
       row.push({
         note: note,
-        isActive: false
+        isActive: false, 
+        HTMLElement: null
       });
     }
     rows.push(row);
   }
 
-  // we now have 6 rows each containing 16 eighth notes
+  // we now have 6(sequencer) rows each containing 16 eighth notes
   return rows;
 };
 
 const synths = makeSynths(8);
 
 // declaring the notes for each row
-const notes = ["C5", "B4","A5", "G4", "F4", "E4", "D4", "C4"];
+const notes = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3", "C1", "C2"];
 let grid = makeGrid(notes);
 let beat = 0;
 let playing = false;
@@ -96,16 +98,21 @@ const configLoop = () => {
       let note = row[beat];
       if (note.isActive) {
         synth.triggerAttackRelease(note.note, "8n", time);
+        // console.log(row[beat])
+        let a = row[beat].HTMLElement;
+        // a.style.backgroundColor = "red";
+        // a.style.animationDuration = "8n" doesnt work :(
+        a.classList.add("glow-animation")
+        setTimeout(() => { a.classList.remove("glow-animation")}, 300 );        
       }
     });
 
-    beat = (beat + 1) % 8;
+    beat = (beat + 1) % sequencerWidth;
   };
 
   Tone.Transport.bpm.value = 120;
   Tone.Transport.scheduleRepeat(repeat, "8n");
 };
-
 const makeSequencer = () => {
   const sequencer = document.getElementById("sequencer");
   grid.forEach((row, rowIndex) => {
@@ -116,9 +123,15 @@ const makeSequencer = () => {
     row.forEach((note, noteIndex) => {
       const button = document.createElement("button");
       button.className = "note"
+      if (rowIndex >=6){
+        button.setAttribute("id","beat-color")
+      }
       button.addEventListener("click", function(e) {
         handleNoteClick(rowIndex, noteIndex, e);
+
       });
+      grid[rowIndex][noteIndex].HTMLElement = button
+      // console.log(grid[rowIndex][noteIndex])
 
       seqRow.appendChild(button);
     });
@@ -135,12 +148,24 @@ const handleNoteClick = (clickedRowIndex, clickedNoteIndex, e) => {
         e.target.className = classNames(
           "note", 
           { "note-is-active": !!note.isActive }, 
-          { "note-not-active": !note.isActive }
+          { "note-not-active": !note.isActive },
+
         );
       }
     });
   });
 };
+
+// document.getElementById("randomize-button").onclick = function randomizeGrid() {
+//   console.log(grid)
+//   for(let x = 0; x < grid.length; x++) {
+//     for(let y = 0; y < grid[x].length; y++) {
+//       if(Math.random() > 0.5) {
+//         grid[x][y].isActive = true;
+//       }
+//     }
+//   }
+// }
 
 const configPlayButton = () => {
   const button = document.getElementById("play-button");
@@ -154,10 +179,12 @@ const configPlayButton = () => {
 
     if (playing) {
       e.target.innerText = "Play";
+      e.target.classList.remove("active-button");
       Tone.Transport.stop();
       playing = false;
     } else {
       e.target.innerText = "Stop";
+      e.target.classList.add("active-button");
       Tone.Transport.start();
       playing = true;
     }

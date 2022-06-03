@@ -1,0 +1,198 @@
+html {
+  background-color: rgb(9, 8, 13);
+  color: var(--primary-color);
+  /* font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace; */
+  font-family: 'Share Tech Mono', monospace;
+  /* font-family: 'Space Grotesk', sans-serif; */
+  width: 100%;
+  height: 100%;
+  padding-top: 60px;
+}
+
+:root {
+  --primary-color: rgb(255, 255, 255);
+  --primary-color-dark: #959595;
+  --secundary-color: rgb(176, 176, 176);
+  --tertiary-color: rgb(92, 235, 140);
+  --fourth-color: rgb(160, 243, 232);
+}
+
+.sequencer {
+  border-radius: 5px;
+  width: fit-content;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: fit-content;
+  margin: auto;
+}
+
+#beat-color {
+  /* --primary-color: rgb(244, 178, 54); */
+  --primary-color: rgb(54, 244, 174);
+  --primary-color-dark: rgb(13, 68, 5);
+}
+
+.note {
+  height: 4em;
+  width: 4em;
+  border: 1px var(--primary-color) solid;
+  background-color: #0b0b0b;
+  cursor: pointer;
+  margin: 3px;
+}
+
+.played-note {
+  background-color: greenyellow;
+  filter: blur(4px);
+}
+
+.sequencer-row {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.note-is-active {
+  background-color: var(--primary-color);
+  border: 1px var(--primary-color-dark) solid;
+}
+
+#about-button {
+margin-inline-end: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  color: var(--primary-color-dark);
+}
+/* .note-not-active {
+    background-color: yellow;
+  } */
+#slider {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+#bpm {
+  margin-left: 15px;
+}
+
+.toggle-play {
+  display: flex;
+}
+
+.play-button {
+  margin: auto;
+  margin-top: 40px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 5px 30px;
+  width: 150px;
+  font: inherit;
+  border: solid 2px var(--primary-color);
+  cursor: pointer;
+  text-align: center;
+}
+
+.active-button {
+  background-color: var(--primary-color);
+  color: black;  
+}
+
+
+@keyframes glow {
+  0% {background-color: var(--primary-color)}
+  /* 50% {background-color: var(--tertiary-color)} */
+  /* 50% {background-color: rgb(255, 1, 251)} */
+  /* 50% {background-color: rgb(255, 221, 158); } */
+  50% {background-color: var(--fourth-color); opacity: 60%;}
+  100% {background-color: var(--primary-color)}
+}
+.glow-animation {
+  animation-name: glow;
+  animation-iteration-count: 1;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+/* button {
+    border: 1px var(--primary-color) solid;
+	background: none;
+    cursor: pointer;
+    color: var(--secundary-color);
+    height: 80px;
+    width: 80px;
+}
+#editor {
+    width: 100%;
+    height: 100%;
+} */
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 10rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: var(--primary-color-dark);
+  height: 0.15rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  margin-top: -9px;
+  /* Centers thumb on the track */
+
+  /*custom styles*/
+  background-color: var(--primary-color);
+  height: 1.4rem;
+  width: 0.4rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid var(--primary-color-dark);
+  outline: 3px solid var(--primary-color-dark);
+  outline-offset: 0.125rem;
+}
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: var(--primary-color-dark);
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  /*Removes extra border that FF applies*/
+  border-radius: 0;
+  /*Removes default border-radius that FF applies*/
+
+  /*custom styles*/
+  background-color: var(--primary-color);
+  height: 2rem;
+  width: 1rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  border: 1px solid var(--primary-color-dark);
+  outline: 3px solid var(--primary-color-dark);
+  outline-offset: 0.125rem;
+}

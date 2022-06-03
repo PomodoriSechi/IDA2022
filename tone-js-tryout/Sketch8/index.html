@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6 Step Sequencer</title>
+  <link rel="icon" type="image/png" sizes="174x174" href="/tone-js-tryout/Sketch5/assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&family=Space+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&family=Space+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Grotesk:wght@300;600&family=Space+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.40/Tone.js"
+    integrity="sha512-59wz3/QJMP1QgULLB5O08pqS8wIdlvK1iJaRZm6ESyRrUuxjdRrnKepXKbSTbjX3ZZZ19AbiCJZEaZN7Zm8OjQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+  <div id="sequencer" class="container sequencer"></div>
+  <div id="beatSequencer" class="container sequencer"></div>
+  <div class="toggle-play">
+    <button id="play-button" class="play-button">Play</button>
+    <!-- <button class="play-button" id="randomize-button">randomize</button> -->
+    <div id="output"></div>
+  </div>
+  <div id="slider">speed<input id="bpm" type="range" min="50" max="220" step="1" value="120"></input></div>
+  <script type="module" src="/tone-js-tryout/Sketch6/assets/scripts/tone.js"></script>
+<!-- <div class="spacer"><a id="about-button"><i class="fa">&#xf107;</i> behind the sounds</a></div> -->
+  <div></div>
+</body>
+
+</html>
