@@ -1,0 +1,14 @@
+$("#roll").click(function() {
+     $("#content").animate({
+          width: "100%",
+          height: "0px"
+     }, function() {
+         window.location.href = "index2.html";
+     });
+});
+
+$("#roll").click(function() {
+     $("#content").slideUp(function() {
+         window.location.href = "index2.html";
+     });
+});
