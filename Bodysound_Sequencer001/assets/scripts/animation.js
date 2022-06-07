@@ -1,67 +1,36 @@
-// $("#about-button").click(function() {
-//      $("#content").animate({
-//           width: "100%",
-//           height: "0px"
-//      }, function() {
-//          window.location.href = "index2.html";
-//      });
-// });
-
-// $("#about-button").click(function() {
-//      $("#content").slideUp(function() {
-//          window.location.href = "index2.html";
-//      });
-// });
-
-
-// function rollout() {
-//     let div = document.getElementById("behindthesounds")
-
-//     if (div.style.visibility = "collapse") {
-//         div.style.visibility = "visible"
-//         div.style.height = "700px"
-//     } else {
-//         div.style.visibility = "collapse"
-//         div.style.height = "0px"
-//     }
-//     }
-
-
-// function rollIn() {
-//     if(div.style.visibility = "visible") {
-//         div.style.visibility = "collapse"
-//         div.style.height = "0px"
-//     }
-// }
-
-// let e = document.getElementById("behindthesounds")
-// function rollout() {
-//     const btsbutton = document.getElementById("behindthesounds");
-//     btsbutton.addEventListener("click", (e) => {  
-//       if (e.classList.contains("visible")) {
-//         e.target.classList.remove("visible");
-//         Tone.Transport.stop();
-//         playing = false;
-//       } else {
-//         e.target.classList.add("visible");
-//       }
-//     });
-//   };
-
-
-
-
-
-// var btn = document.getElementById("behindthesounds");
-// var behindthesounds = document.getElementById("behindthesounds");
-
-// btn.addEventListener("click", function() {
-//     behindthesounds.classList.toggle("visible");
-//  });
-
-
-
-function myFunction() {
+function rollOut() {
     var element = document.getElementById("behindthesounds");
     element.classList.toggle("visible");
+    // const smoothScroll = (id) => {
+    //     const element = $(`#behindthesounds`);
+    //     element.stop().animate({
+    //         scrollTop: element.prop("scrollHeight")
+    //     }, 500);
+    // }
+    
+    // smoothScroll('scroll-to-bottom');
+    $('html, body').animate({
+        scrollTop: $("#behindthesounds").offset().top}, 10);
   }
+
+
+//   $('#behindthesounds').scrollTop($('#behindthesounds')[0].scrollHeight);
+
+
+
+  // The following code do the same thing:
+  // $('#scroll-to-bottom').scrollTop(function() {
+  // 	return this.scrollHeight;
+  // });
+
+  // let scroll_to_bottom = $("#scroll-to-bottom");
+  // scroll_to_bottom.scrollTop(scroll_to_bottom.prop("scrollHeight"));
+ 
+
+//   $(document).ready(function(){
+//     $("about-button").click(function(){
+//       $("behindthesounds").animate({
+//         height: 'toggle'
+//       });
+//     });
+//   });

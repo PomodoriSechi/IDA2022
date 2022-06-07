@@ -199,3 +199,29 @@ window.addEventListener("DOMContentLoaded", () => {
   configPlayButton();
 	makeSequencer();
 });
+
+
+/*---------------------------- clear buton -----------------------*/
+const btnRemoveClass = document.getElementById("clear-button");
+const removeActiveClass = () => {
+  const activeElements = document.getElementsByClassName('note-is-active');
+  for (const activeElement of activeElements) {
+    activeElement.classList.remove('note-is-active');
+  }
+};
+
+btnRemoveClass.addEventListener('click', (e) => {
+  const button2 = document.getElementById("play-button");
+  const button = document.getElementById("clear-button");
+  for(let x = 0; x < grid.length; x++) {
+    for(let y = 0; y < grid[x].length; y++) {
+     grid[x][y].isActive = false;
+      button.innerText = "clear grid";
+      button2.innerText = "Play";
+      button2.classList.remove("active-button");
+      removeActiveClass();
+      Tone.Transport.stop()
+      playing = false;
+    }
+  }
+});

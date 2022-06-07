@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10x10 Bodysound Sequencer</title>
+  <title>Bodysound Sequencer</title>
   <link rel="icon" type="image/png" sizes="174x174" href="/tone-js-tryout/Sketch5/assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,9 +29,13 @@
 </head>
 
 <body>
-
-  <div id="sequencer" class="container sequencer"></div>
-  <div id="beatSequencer" class="container sequencer"></div>
+  <div class="topNavigation">
+    <div id="smallGridButton"></div>
+    <div id="bigGridButton"></div>
+  </div>
+  <div id="sequencer" class="container sequencer">
+    <a id="clear-button">clear grid</a>
+  </div>
   <div class="toggle-play">
     <button id="play-button" class="play-button">Play</button>
     <!-- <button class="play-button" id="randomize-button">randomize</button> -->
@@ -40,11 +44,15 @@
   <div id="slider">speed<input id="bpm" type="range" min="50" max="220" step="1" value="120"></input></div>
   <script type="module" src="/Bodysound_Sequencer001/assets/scripts/tone.js"></script>
   <script type="text/javascript" src="/Bodysound_Sequencer001/assets/scripts/animation.js"></script>
-  <div class="spacer"><a onclick="myFunction()" id="about-button"><i class="fa">&#xf107;</i> behind the sounds</a></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+  <div class="spacer"><a onclick=rollOut() id="about-button"><i class="fa">&#xf107;</i> behind the sounds</a></div>
   <div id="behindthesounds">
-    <iframe width="500" height="500" href="/Bodysound_Sequencer001/assets/img/Bodysound-Sequencer02.mp4">
+    <iframe width="500" height="500" src="/Bodysound_Sequencer001/assets/img/Bodysound-Sequencer02.mp4">
     </iframe>
-    <p>this is the blabla</p>
+    <p class="description">The Bodysound Sequencer is a electronic instrument, based on sounds that we made with our bodies. The Mathematical strictness of electronic music meets the organic quality of bones, skin and muscles.</p>
   </div>
   <div></div>
 </body>

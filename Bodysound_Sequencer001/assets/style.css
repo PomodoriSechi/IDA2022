@@ -1,3 +1,6 @@
+* {
+  /* background-color: rgb(9, 8, 13); */
+}
 html {
   background-color: rgb(9, 8, 13);
   color: var(--primary-color);
@@ -7,12 +10,23 @@ html {
   font-family: 'Share Tech Mono', monospace;
   width: 100%;
   height: 100%;
-  padding: 40px 0 0 0;
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  width: 100%;
+  height: 99%;
 }
 .fa {
   margin-right: 5px;
 }
+.container {
+  margin-top:20px !important;
+}  
+
 :root {
   --primary-color: rgb(255, 255, 255);
   --primary-color-dark: #959595;
@@ -20,7 +34,38 @@ html {
   --tertiary-color: rgb(92, 235, 140);
   --fourth-color: rgb(160, 243, 232);
 }
-
+iframe {
+  border: none;
+}
+.topNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 60%;
+  margin: 0  20% 0 20%;
+  position: absolute;
+}
+#smallGridButton {
+  background: url(/Bodysound_Sequencer001/assets/img/2x2-icon.svg) no-repeat;
+  width: 33px;
+  height:33px;
+  margin: 6px;
+}
+#bigGridButton {
+  background: url(/Bodysound_Sequencer001/assets/img/3x3-icon-active.svg) no-repeat;
+  width: 33px;
+  height: 33px;
+  margin: 6px;
+}
+#bigGridButton:hover {
+  background: url(/Bodysound_Sequencer001/assets/img/3x3-icon-hover.svg) no-repeat;
+  cursor: pointer;
+}
+#smallGridButton:hover{
+  background: url(/Bodysound_Sequencer001/assets/img/2x2-icon-hover.svg) no-repeat;
+  cursor: pointer;
+}
 .sequencer {
   border-radius: 5px;
   width: fit-content;
@@ -29,7 +74,9 @@ html {
   grid-template-columns: fit-content;
   margin: auto;
 }
-
+.description {
+  max-width: 500px;
+}
 #beat-color {
   /* --primary-color: rgb(244, 178, 54); */
   --primary-color: rgb(54, 244, 174);
@@ -45,7 +92,7 @@ html {
   margin: 3px;
 }
 .spacer {
-  margin-top: 100px;
+  margin-top: 20px;
 }
 
 a:hover {
@@ -68,11 +115,11 @@ a:hover {
 }
 
 #about-button {
-margin-inline-end: auto;
   display: flex;
   justify-content: center;
   flex-direction: row;
   color: var(--primary-color-dark);
+  align-items: center;
 }
 /* .note-not-active {
     background-color: yellow;
@@ -93,12 +140,12 @@ margin-inline-end: auto;
 
 .play-button {
   margin: auto;
-  margin-top: 40px;
+  margin-top: 50px;
   background: none;
   color: inherit;
   border: none;
   padding: 5px 30px;
-  width: 150px;
+  width: 218px;
   font: inherit;
   border: solid 2px var(--primary-color);
   cursor: pointer;
@@ -217,7 +264,7 @@ input[type="range"]:focus::-moz-range-thumb {
 
 
 .visible {
-  height: 700px !important;
+  height: 880px !important;
   visibility: visible !important;
 }
 
@@ -229,5 +276,14 @@ input[type="range"]:focus::-moz-range-thumb {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
 
+
+#clear-button {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  padding-right: 4px;
+  padding-bottom: 5px;
+  font-size: 12.5px;
 }
