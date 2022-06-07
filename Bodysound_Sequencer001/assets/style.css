@@ -46,6 +46,14 @@ iframe {
   margin: 0  20% 0 20%;
   position: absolute;
 }
+.activeBigGridButton {
+  background: url(/Bodysound_Sequencer001/assets/img/3x3-icon-active.svg) no-repeat !important;
+  cursor: pointer;
+}
+.activeSmallGridButton {
+  background: url(/Bodysound_Sequencer001/assets/img/2x2-icon-active.svg) no-repeat !important;
+  cursor: pointer;
+}
 #smallGridButton {
   background: url(/Bodysound_Sequencer001/assets/img/2x2-icon.svg) no-repeat;
   width: 33px;
@@ -53,7 +61,7 @@ iframe {
   margin: 6px;
 }
 #bigGridButton {
-  background: url(/Bodysound_Sequencer001/assets/img/3x3-icon-active.svg) no-repeat;
+  background: url(/Bodysound_Sequencer001/assets/img/3x3-icon.svg) no-repeat;
   width: 33px;
   height: 33px;
   margin: 6px;
@@ -66,6 +74,7 @@ iframe {
   background: url(/Bodysound_Sequencer001/assets/img/2x2-icon-hover.svg) no-repeat;
   cursor: pointer;
 }
+
 .sequencer {
   border-radius: 5px;
   width: fit-content;
