@@ -16,6 +16,7 @@ html {
   overflow-x: hidden;
 }
 body {
+  background-color: rgb(9, 8, 13);
   margin: 0;
   width: 100%;
   height: 99%;
@@ -45,6 +46,7 @@ iframe {
   width: 60%;
   margin: 0  20% 0 20%;
   position: absolute;
+  z-index: 0;
 }
 .activeBigGridButton {
   background: url(/Bodysound_Sequencer001/assets/img/3x3-icon-active.svg) no-repeat !important;

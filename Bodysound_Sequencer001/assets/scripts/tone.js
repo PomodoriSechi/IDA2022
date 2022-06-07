@@ -6,10 +6,13 @@ import * as Tone from "https://cdn.skypack.dev/tone";
 
 
 function bigSequencer() {
+
+  console.log("big sequencer is active")
+
   let sequencerWidth = 10
-  const makeSynths = (count) => {
+  let makeSynths = (count) => {
     // declare array to store synths
-    const synths = [];
+    let synths = [];
 
     // each synth can only play one note at a time.
     // for polyphony (multiple notes playing at the same time), we'll create one synth for each note available
@@ -38,16 +41,16 @@ function bigSequencer() {
     return synths;
   };
 
-  const makeGrid = (notes) => {
+  let makeGrid = (notes) => {
     // "notation" consist of an array with 6 sub arrays
     // each sub array corresponds to one row in our sequencer grid
 
     // parent array to hold each row subarray
-    const rows = [];
+    let rows = [];
 
-    for (const note of notes) {
+    for (let note of notes) {
       // declare the subarray
-      const row = [];
+      let row = [];
       // each subarray contains multiple objects that have an assigned note
       // and a boolean to flag whether they are "activated"
       // each element in the subarray corresponds to one eigth note
@@ -65,25 +68,25 @@ function bigSequencer() {
     return rows;
   };
 
-  const synths = makeSynths(10);
+  let synths = makeSynths(10);
 
   // declaring the notes for each row
-  const notes = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3", "C1", "C2", "C1", "D1"];
+  let notes = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3", "C1", "C2", "C1", "D1"];
   let grid = makeGrid(notes);
   let beat = 0;
   let playing = false;
   let started = false;
   /*---------------------------- define sequencer -----------------------*/
 
-  const makeSequencer = () => {
-    const sequencer = document.getElementById("sequencer");
+  let makeSequencer = () => {
+    let sequencer = document.getElementById("sequencer");
     grid.forEach((row, rowIndex) => {
-      const seqRow = document.createElement("div");
+      let seqRow = document.createElement("div");
       seqRow.id = `rowIndex`;
       seqRow.className = "sequencer-row";
 
       row.forEach((note, noteIndex) => {
-        const button = document.createElement("button");
+        let button = document.createElement("button");
         button.className = "note"
         if (rowIndex >= 6) {
           button.setAttribute("id", "beat-color")
@@ -101,7 +104,7 @@ function bigSequencer() {
     });
   };
 
-  const handleNoteClick = (clickedRowIndex, clickedNoteIndex, e) => {
+  let handleNoteClick = (clickedRowIndex, clickedNoteIndex, e) => {
     grid.forEach((row, rowIndex) => {
       row.forEach((note, noteIndex) => {
         if (clickedRowIndex === rowIndex && clickedNoteIndex === noteIndex) {
@@ -118,8 +121,8 @@ function bigSequencer() {
   };
   /*---------------------------- play buton -----------------------*/
 
-  const configPlayButton = () => {
-    const button = document.getElementById("play-button");
+  let configPlayButton = () => {
+    let button = document.getElementById("play-button");
     button.addEventListener("click", (e) => {
       if (!started) {
         Tone.start();
@@ -146,17 +149,17 @@ function bigSequencer() {
     makeSequencer();
   });
   /*---------------------------- clear buton -----------------------*/
-  const btnRemoveClass = document.getElementById("clear-button");
-  const removeActiveClass = () => {
-    const activeElements = document.getElementsByClassName('note-is-active');
-    for (const activeElement of activeElements) {
+  let btnRemoveClass = document.getElementById("clear-button");
+  let removeActiveClass = () => {
+    let activeElements = document.getElementsByClassName('note-is-active');
+    for (let activeElement of activeElements) {
       activeElement.classList.remove('note-is-active');
     }
   };
 
   btnRemoveClass.addEventListener('click', (e) => {
-    const button2 = document.getElementById("play-button");
-    const button = document.getElementById("clear-button");
+    let button2 = document.getElementById("play-button");
+    let button = document.getElementById("clear-button");
     for (let x = 0; x < grid.length; x++) {
       for (let y = 0; y < grid[x].length; y++) {
         grid[x][y].isActive = false;
@@ -177,9 +180,9 @@ function bigSequencer() {
 
   /*------------------------------ loop ---------------------------*/
 
-  const configLoop = () => {
+  let configLoop = () => {
 
-    const repeat = (time) => {
+    let repeat = (time) => {
       grid.forEach((row, index) => {
         let synth = synths[index];
         let note = row[beat];
@@ -200,10 +203,12 @@ function bigSequencer() {
   return
 }
 function smallSequencer() {
+  console.log("small sequencer is active")
+
   let sequencerWidth = 8
-  const makeSynths = (count) => {
+  let makeSynths = (count) => {
     // declare array to store synths
-    const synths = [];
+    let synths = [];
 
     // each synth can only play one note at a time.
     // for polyphony (multiple notes playing at the same time), we'll create one synth for each note available
@@ -232,16 +237,16 @@ function smallSequencer() {
     return synths;
   };
 
-  const makeGrid = (notes) => {
+  let makeGrid = (notes) => {
     // "notation" consist of an array with 6 sub arrays
     // each sub array corresponds to one row in our sequencer grid
 
     // parent array to hold each row subarray
-    const rows = [];
+    let rows = [];
 
-    for (const note of notes) {
+    for (let note of notes) {
       // declare the subarray
-      const row = [];
+      let row = [];
       // each subarray contains multiple objects that have an assigned note
       // and a boolean to flag whether they are "activated"
       // each element in the subarray corresponds to one eigth note
@@ -259,25 +264,25 @@ function smallSequencer() {
     return rows;
   };
 
-  const synths = makeSynths(8);
+  let synths = makeSynths(8);
 
   // declaring the notes for each row
-  const notes = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3", "C1", "D1"];
+  let notes = ["F4", "Eb4", "C4", "Bb3", "Ab3", "F3", "C1", "D1"];
   let grid = makeGrid(notes);
   let beat = 0;
   let playing = false;
   let started = false;
   /*---------------------------- define sequencer -----------------------*/
 
-  const makeSequencer = () => {
-    const sequencer = document.getElementById("sequencer");
+  let makeSequencer = () => {
+    let sequencer = document.getElementById("sequencer");
     grid.forEach((row, rowIndex) => {
-      const seqRow = document.createElement("div");
+      let seqRow = document.createElement("div");
       seqRow.id = `rowIndex`;
       seqRow.className = "sequencer-row";
 
       row.forEach((note, noteIndex) => {
-        const button = document.createElement("button");
+        let button = document.createElement("button");
         button.className = "note"
         if (rowIndex >= 6) {
           button.setAttribute("id", "beat-color")
@@ -295,7 +300,7 @@ function smallSequencer() {
     });
   };
 
-  const handleNoteClick = (clickedRowIndex, clickedNoteIndex, e) => {
+  let handleNoteClick = (clickedRowIndex, clickedNoteIndex, e) => {
     grid.forEach((row, rowIndex) => {
       row.forEach((note, noteIndex) => {
         if (clickedRowIndex === rowIndex && clickedNoteIndex === noteIndex) {
@@ -312,8 +317,8 @@ function smallSequencer() {
   };
   /*---------------------------- play buton -----------------------*/
 
-  const configPlayButton = () => {
-    const button = document.getElementById("play-button");
+  let configPlayButton = () => {
+    let button = document.getElementById("play-button");
     button.addEventListener("click", (e) => {
       if (!started) {
         Tone.start();
@@ -340,17 +345,17 @@ function smallSequencer() {
     makeSequencer();
   });
   /*---------------------------- clear buton -----------------------*/
-  const btnRemoveClass = document.getElementById("clear-button");
-  const removeActiveClass = () => {
-    const activeElements = document.getElementsByClassName('note-is-active');
-    for (const activeElement of activeElements) {
+  let btnRemoveClass = document.getElementById("clear-button");
+  let removeActiveClass = () => {
+    let activeElements = document.getElementsByClassName('note-is-active');
+    for (let activeElement of activeElements) {
       activeElement.classList.remove('note-is-active');
     }
   };
 
   btnRemoveClass.addEventListener('click', (e) => {
-    const button2 = document.getElementById("play-button");
-    const button = document.getElementById("clear-button");
+    let button2 = document.getElementById("play-button");
+    let button = document.getElementById("clear-button");
     for (let x = 0; x < grid.length; x++) {
       for (let y = 0; y < grid[x].length; y++) {
         grid[x][y].isActive = false;
@@ -371,9 +376,9 @@ function smallSequencer() {
 
   /*------------------------------ loop ---------------------------*/
 
-  const configLoop = () => {
+  let configLoop = () => {
 
-    const repeat = (time) => {
+    let repeat = (time) => {
       grid.forEach((row, index) => {
         let synth = synths[index];
         let note = row[beat];
@@ -391,7 +396,6 @@ function smallSequencer() {
     Tone.Transport.bpm.value = 130; // default bpm value
     Tone.Transport.scheduleRepeat(repeat, "8n");
   };
-  return
 }
 
 let smallGridButton = document.getElementById("smallGridButton")
@@ -405,22 +409,43 @@ smallGridButton.addEventListener('click', function () {
   bigButtonActive = false
   smallGridButton.classList.add("activeSmallGridButton")
   bigGridButton.classList.remove("activeBigGridButton")
-  bigSequencer()
-  console.log("hei tim")
+  var children = document.getElementById("sequencer")
+  while (children.lastChild ) { //console.log(children.lastChild.nodeType)
+    if(children.lastChild.nodeType != 3){
+      if(children.lastChild.classList.contains("sequencer-row") ){
+        children.removeChild(children.lastChild);
+      }
+    }
+    
+  }
+  smallSequencer()
+  console.log("you pushed the small button")
 }
 )
+
 bigGridButton.addEventListener('click', function () {
   smallButtonActive = false
   bigButtonActive = true
   bigGridButton.classList.add("activeBigGridButton")
   smallGridButton.classList.remove("activeSmallGridButton")
-  smallSequencer()
+  var children = document.getElementById("sequencer")
+  while (children.lastChild ) { //console.log(children.lastChild.nodeType)
+    if(children.lastChild.nodeType != 3){
+      if(children.lastChild.classList.contains("sequencer-row") ){
+        children.removeChild(children.lastChild);
+      }
+    }
+    
+  }
+  bigSequencer()
+  console.log("you pushed the big button")
 })
 
 if (smallButtonActive = true) {
-  bigSequencer()
-  console.log("i am active")
+  smallSequencer()
+  // console.log("small button is active")
 }
+
 /*---------------------------- randomize buton -----------------------*/
 
 // document.getElementById("randomize-button").onclick = function randomizeGrid() {

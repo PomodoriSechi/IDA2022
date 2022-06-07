@@ -26,10 +26,10 @@ const makeSynths = (count) => {
     let synth = new Tone.Sampler({
 			urls: {
         
-        // "C4": "C4.m4a",
-        // "D#4": "Ds4.m4a",
-        // "F#4": "Fs4.m4a",
-        // "A4": "A4.m4a",
+        "C4": "C4.m4a",
+        "D#4": "Ds4.m4a",
+        "F#4": "Fs4.m4a",
+        "A4": "A4.m4a",
 				// "C4": "achtel-Bierdose.mp3",
 				// "D4": "Goerps1.mp3",
 				// "A4": "Knack_1.mp4",
